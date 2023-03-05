@@ -1,0 +1,78 @@
+<div class="login-page">
+    <div class="content px20">
+      
+      <form class="login-form"  [formGroup]="addProductForm" novalidate  autocomplete="off">
+        <div class="text-center">
+          <h2 class="app-name">Add  Product</h2>
+        </div>
+        <div fxLayout="row">
+          <div fxFlexFill >
+            <mat-form-field class="w-50">
+              <input matInput placeholder="Product Title" formControlName="productTitle" >
+            </mat-form-field>
+            <mat-form-field class="w-50">
+              <input matInput type="text" formControlName="productSKU" placeholder="Product SKU">
+            </mat-form-field>
+            <mat-form-field class="w-50">
+              <input matInput placeholder="Price" formControlName="price" >
+            </mat-form-field>
+              <mat-form-field  class="w-50">
+                <mat-select formControlName="currency"  placeholder="Currency">
+                  <mat-option value="Inr">Inr</mat-option>
+                  <mat-option value="Usd">Usd</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            <mat-form-field class="w-100">
+              <mat-label>Category List </mat-label>
+              <mat-select (selectionChange)="category($event)">
+                <mat-option [value]="">
+                  Select
+                </mat-option>
+                <mat-option *ngFor="let cate of categoryData" [value]="cate._id">
+                  {{cate.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!-- <div class="tree">
+              <ngx-treeview
+              [config]="config1" (selectedChange)="onSelectedChange($event)"
+              [items]="items">
+            </ngx-treeview>
+            </div>
+        -->
+        
+        <div>
+          <button (click)="addNewAddressGroup()">Add Product Details</button>
+        </div>
+        <div *ngFor="let addressGroup of addProductForm.get('productDetails')['controls'];let i = index" [formGroup]="addressGroup">
+          <mat-form-field class="w-30">
+            <input matInput placeholder="Quantity" formControlName="quantity" >
+          </mat-form-field>
+          
+          <mat-form-field class="w-30">
+            <input matInput placeholder="Sizes" formControlName="sizes" >
+          </mat-form-field>
+          <mat-slide-toggle class="w-30" formControlName="stockAvailability">Stock Availability</mat-slide-toggle>
+
+          <span class="w-30" (click)="deleteAddressGroup(i)" ><mat-icon>delete</mat-icon></span>
+        </div>
+      
+        <angular-editor formControlName="productDescription" [config]="config"></angular-editor>
+         
+        <div class="product">
+          <mat-checkbox #checkbox formControlName="allowDiscount"> Product Discount</mat-checkbox>
+          <input matInput class="inputproduct" formControlName="discountPercentage" type="text"  placeholder="Product Percentage" [hidden]="!checkbox.checked"/>
+        </div>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <button type="submit" mat-raised-button color="primary" (click)="onLogin()" class="w-100">Save</button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  

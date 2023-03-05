@@ -11,6 +11,7 @@ export class StatComponent implements OnInit {
   @Input() count: number;
   @Input() label: string;
   @Input() data: number;
+  @Input() link:any;
   constructor() {}
 
   ngOnInit() {}

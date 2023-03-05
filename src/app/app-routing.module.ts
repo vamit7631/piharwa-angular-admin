@@ -1,20 +1,29 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './core/auth.guard';
+import { HomeComponent } from './components/home/home.component';
+import { AddProductComponent } from './components/products/product/add-product/add-product.component';
+import { ProductComponent } from './components/products/product/product.component';
+import { LoginComponent } from './login/login/login.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
-    canActivate: [AuthGuard],
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'login',
-    loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginModule),
+    component: LoginComponent,
   },
+  {
+    path: 'product',
+    component: ProductComponent,
+  },
+  {
+    path: 'addproduct',
+    component: AddProductComponent,
+  },
+  
   {
     path: '**',
     component: PageNotFoundComponent,
