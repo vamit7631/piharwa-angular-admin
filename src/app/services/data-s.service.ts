@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { ApiConstants } from '../appConfig/app-config';
 
 @Injectable({
@@ -24,4 +24,16 @@ export class DataService {
     return this.http.get(ApiConstants.apiURL + ApiConstants.categoryId+'/'+id);
 
    }
+
+   addproduct(data){
+    return this.http.post(ApiConstants.apiURL + ApiConstants.addProduct,data);
+
+   }
+   imageUploadTumb(productId,data){
+    return this.http.post(ApiConstants.apiURL + ApiConstants.imageUpload+'/'+productId,data);
+
+   }
+   public imgEvent: EventEmitter<any> = new EventEmitter();
+
+   
 }

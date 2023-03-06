@@ -1,6 +1,6 @@
 
- <div class="layout-container">
-    <app-header (sideNavToggled)="snav.toggle()"></app-header>
+ <div *ngIf="showHead" class="layout-container">
+    <app-header  (sideNavToggled)="snav.toggle()"></app-header>
   
     <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="toolBarHeight">
       <mat-sidenav #snav class="sidenav mat-elevation-z10" [(mode)]="sideNavMode" [(opened)]="sideNavOpened">
@@ -15,7 +15,7 @@
           </mat-nav-list>
           
       </mat-sidenav>
-      <mat-sidenav-content>
+      <mat-sidenav-content >
         <main class="main-container">
           <router-outlet></router-outlet>
         </main>
@@ -23,3 +23,8 @@
     </mat-sidenav-container>
   </div>
   
+  <!-- <div  *ngIf="showHead ">
+    <router-outlet></router-outlet>
+
+  </div> -->
+  <!-- <router-outlet></router-outlet> -->

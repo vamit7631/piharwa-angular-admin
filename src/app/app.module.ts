@@ -12,17 +12,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { StatComponent } from './components/home/stat/stat.component';
 import { TokenService } from './services/token.service';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './components/products/product/product.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { AddProductComponent } from './components/products/product/add-product/add-product.component';
 import { TreeviewConfig, TreeviewEventParser, TreeviewI18n, TreeviewModule } from 'ngx-treeview';
+import { FileUploadComponent } from './components/products/file-upload/file-upload.component';
+import { StatComponent } from './admin/dashboard/stat/stat.component';
+import { MultiFileUploadComponent } from './components/products/multi-file-upload/multi-file-upload.component';
 @NgModule({
   declarations: [AppComponent,LoginComponent, HeaderComponent, 
     AddProductComponent,
-    ProductComponent,FooterComponent, HomeComponent,StatComponent],
+    ProductComponent,FooterComponent, HomeComponent,StatComponent, FileUploadComponent, MultiFileUploadComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

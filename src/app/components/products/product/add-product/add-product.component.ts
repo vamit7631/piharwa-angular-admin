@@ -28,7 +28,9 @@ export class AddProductComponent implements OnInit {
    }
   categoryData: any;
   categoryDataIdData: any;
-  items:  TreeviewItem[]; ;
+  items:  TreeviewItem[];productData: any;
+  productid: any='';
+ ;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -146,18 +148,23 @@ export class AddProductComponent implements OnInit {
     const add = this.addProductForm.get('productDetails') as FormArray;
     add.removeAt(index)
   }
-  onLogin() {
+  AddProduct() {
     let userData = this.addProductForm.value;
     console.log(userData)
-    this.dataService.loginApi(userData).subscribe(
-      (data) => this.logindialog(data),
+    this.dataService.addproduct(userData).subscribe(
+      (data) => this.productdialog(data),
       (err) => console.log(err)
     );
   }
 
-  logindialog(data: any) {
+  productdialog(data: any) {
     if (data.status === true) {
-      this.loginData = data;
+      this.productData = data.data;
+      console.log( this.productData)
+      this.productid = this.productData._id
+      this.dataService.imgEvent.emit(this.productid)
+      this.addProductForm.reset();
+      alert(data.message);
     }
     if (data.status === false) {
       alert(data.message)
@@ -209,4 +216,6 @@ export class AddProductComponent implements OnInit {
   ]
 
 }
+
+
 }
