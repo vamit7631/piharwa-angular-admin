@@ -1,15 +1,16 @@
 
+<app-loader></app-loader>
  <div *ngIf="showHead" class="layout-container">
-    <app-header  (sideNavToggled)="snav.toggle()"></app-header>
+    <app-header (sideNavToggled)="snav.toggle()"></app-header>
   
     <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="toolBarHeight">
-      <mat-sidenav #snav class="sidenav mat-elevation-z10" [(mode)]="sideNavMode" [(opened)]="sideNavOpened">
+      <mat-sidenav style="    width: 220px;" #snav class="sidenav mat-elevation-z10" [(mode)]="sideNavMode" [(opened)]="sideNavOpened">
         <mat-nav-list>
             <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/home']">
-                <mat-icon class="sidenav-icon">insert_drive_file</mat-icon>Dashborad
+                <mat-icon class="sidenav-icon">dashboard</mat-icon>Dashborad
               </a>
             <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/product']">
-              <mat-icon class="sidenav-icon">insert_drive_file</mat-icon>Product
+              <mat-icon class="sidenav-icon">add_shopping_cart</mat-icon>Product
             </a>
       
           </mat-nav-list>
@@ -23,8 +24,8 @@
     </mat-sidenav-container>
   </div>
   
-  <!-- <div  *ngIf="showHead ">
+  <div *ngIf="!showHead ">
     <router-outlet></router-outlet>
 
-  </div> -->
-  <!-- <router-outlet></router-outlet> -->
+  </div>
+<app-footer></app-footer>

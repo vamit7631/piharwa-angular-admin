@@ -28,7 +28,8 @@ export class AddProductComponent implements OnInit {
    }
   categoryData: any;
   categoryDataIdData: any;
-  items:  TreeviewItem[];productData: any;
+  items:  TreeviewItem[];
+  productData: any;
   productid: any='';
  ;
 

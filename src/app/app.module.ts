@@ -17,12 +17,15 @@ import { CommonModule } from '@angular/common';
 import { ProductComponent } from './components/products/product/product.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { AddProductComponent } from './components/products/product/add-product/add-product.component';
-import { TreeviewConfig, TreeviewEventParser, TreeviewI18n, TreeviewModule } from 'ngx-treeview';
 import { FileUploadComponent } from './components/products/file-upload/file-upload.component';
 import { StatComponent } from './admin/dashboard/stat/stat.component';
 import { MultiFileUploadComponent } from './components/products/multi-file-upload/multi-file-upload.component';
+import { LoaderInterceptor } from './components/loader/loader-intercepert/loader.interceptor';
+import { LoaderComponent } from './components/loader/loader/loader.component';
+import { TreeviewModule } from 'ngx-treeview';
 @NgModule({
   declarations: [AppComponent,LoginComponent, HeaderComponent, 
+    LoaderComponent,
     AddProductComponent,
     ProductComponent,FooterComponent, HomeComponent,StatComponent, FileUploadComponent, MultiFileUploadComponent],
   imports: [
@@ -31,7 +34,8 @@ import { MultiFileUploadComponent } from './components/products/multi-file-uploa
     AppRoutingModule,
     HttpClientModule,ReactiveFormsModule,FormsModule,
     SharedModule,MaterialExampleModule,
-    CommonModule,AngularEditorModule,TreeviewModule.forRoot()
+    CommonModule,AngularEditorModule,TreeviewModule.forRoot(),
+    
 
   ],
   providers: [{
@@ -39,6 +43,7 @@ import { MultiFileUploadComponent } from './components/products/multi-file-uploa
     useClass: TokenService,
     multi: true,
    },
+   { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ],
    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]

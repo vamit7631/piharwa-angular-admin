@@ -12,7 +12,7 @@ export class AppComponent {
   sideNavOpened = true;
   sideNavMode: 'side' | 'over' = 'side';
   toolBarHeight = 64;
-  showHead: boolean = false;
+  showHead: boolean = true;
   private readonly mediaWatcher: Subscription;
   constructor(media: MediaObserver,private router: Router) {
     this.mediaWatcher = media.media$.subscribe((change: MediaChange) => {
