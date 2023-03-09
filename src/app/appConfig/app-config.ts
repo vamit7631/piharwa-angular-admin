@@ -5,5 +5,6 @@ export const ApiConstants ={
     categoryList:'api/v1/main/category/list',
     categoryId:'api/v1/category/list',
     addProduct:'api/v1/product/add',
+    deleteProduct:'api/v1/product/delete',
     imageUpload:'api/v1/product/upload/images'
 }

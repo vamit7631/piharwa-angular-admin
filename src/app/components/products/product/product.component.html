@@ -39,8 +39,20 @@
       <td mat-cell *matCellDef="let row"> {{row.rootCategoryName}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  Delete</th>
+      <td mat-cell *matCellDef="let row" (click)="deleteProduct(row)"> <mat-icon>delete</mat-icon> </td>
+      <td mat-cell *matCellDef="let row" (click)="editProduct(row)"> <mat-icon>edit</mat-icon> </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  Edit</th>
+      <td mat-cell *matCellDef="let row" (click)="editProduct(row)"> <mat-icon>edit</mat-icon> </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
   </table>
 
   <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

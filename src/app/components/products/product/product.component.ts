@@ -5,6 +5,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { SelectionModel } from '@angular/cdk/collections';
+import { DeleteAlertComponent } from '../../delete-alert/delete-alert.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'sb-product',
@@ -12,14 +14,14 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements AfterViewInit ,OnInit{
-  displayedColumns = [  'productTitle','price','rootCategoryName'];
+  displayedColumns = [  'productTitle','price','rootCategoryName','action','edit'];
   dataSource: MatTableDataSource<any>;
   selection: SelectionModel<any>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   productData: any[];
-  constructor(public dataService: DataService,public router :Router) {
+  constructor(public dataService: DataService,public router :Router,public dialog: MatDialog,) {
 
   }
   ngAfterViewInit() {
@@ -55,6 +57,21 @@ export class ProductComponent implements AfterViewInit ,OnInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  editProduct(id){
+    // this.router.navigateByUrl('/editproduct');
+    this.router.navigate(['/editproduct/' + id._id]);
+  }
+  deleteProduct(id) {
+   
+    const dialogRef = this.dialog.open(DeleteAlertComponent, {
+      width: '550px',
+      data: id._id
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+   
+    });
   }
 
   /** Whether the number of selected elements matches the total number of rows. */

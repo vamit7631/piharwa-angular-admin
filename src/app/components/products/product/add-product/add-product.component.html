@@ -1,29 +1,29 @@
 <div class="login-page" style="margin-bottom: 37px;">
-  <div class="row" >
+  <div class="row">
     <div class="col-md-8" style="    border-right: 2px solid gray;">
       <div class="content px20">
-        <form class="login-form"  [formGroup]="addProductForm" novalidate  autocomplete="off">
+        <form class="login-form" [formGroup]="addProductForm" novalidate autocomplete="off">
           <div class="text-center">
-            <h2 class="app-name">Add  Product</h2>
+            <h2 class="app-name">Add Product</h2>
           </div>
           <div fxLayout="row">
-            <div fxFlexFill >
+            <div fxFlexFill>
               <mat-form-field appearance="outline" class="w-50">
-                <input matInput placeholder="Product Title" formControlName="productTitle" >
+                <input matInput placeholder="Product Title" formControlName="productTitle">
               </mat-form-field>
               <mat-form-field appearance="outline" class="w-50">
                 <input matInput type="text" formControlName="productSKU" placeholder="Product SKU">
               </mat-form-field>
               <mat-form-field appearance="outline" class="w-50">
-                <input matInput placeholder="Price" type="number" formControlName="price" >
+                <input matInput placeholder="Price" type="number" formControlName="price">
               </mat-form-field>
-                <mat-form-field appearance="outline"  class="w-50">
-                  <mat-select formControlName="currency"  placeholder="Currency">
-                    <mat-option value="inr">Inr</mat-option>
-                    <mat-option value="usd">Usd</mat-option>
-                  </mat-select>
-                </mat-form-field>
-  
+              <mat-form-field appearance="outline" class="w-50">
+                <mat-select formControlName="currency" placeholder="Currency">
+                  <mat-option value="inr">Inr</mat-option>
+                  <mat-option value="usd">Usd</mat-option>
+                </mat-select>
+              </mat-form-field>
+
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Category List </mat-label>
                 <mat-select (selectionChange)="category($event)">
@@ -36,35 +36,34 @@
                 </mat-select>
               </mat-form-field>
               <div class="tree">
-                <ngx-treeview
-                [config]="config1" (selectedChange)="onSelectedChange($event)"
-                [items]="items">
-              </ngx-treeview>
+                <ngx-treeview [config]="config1" (selectedChange)="onSelectedChange($event)" [items]="items">
+                </ngx-treeview>
               </div>
-     
-          
-          <div>
-            <button   mat-raised-button color="primary" (click)="addNewAddressGroup()"> <mat-icon>add</mat-icon> Add Product Details</button>
-          </div>
-          <div *ngFor="let addressGroup of addProductForm.get('productDetails')['controls'];let i = index" [formGroup]="addressGroup">
-            <mat-form-field appearance="outline" class="w-30">
-              <input matInput placeholder="Quantity" formControlName="quantity" >
-            </mat-form-field>
-            
-            <mat-form-field appearance="outline" class="w-30">
-              <input matInput type="number" placeholder="Sizes" formControlName="sizes" >
-            </mat-form-field>
-            <mat-slide-toggle class="w-30" formControlName="stockAvailability">Stock Availability</mat-slide-toggle>
-  
-            <span class="w-30" (click)="deleteAddressGroup(i)" ><mat-icon>delete</mat-icon></span>
-          </div>
-        
-          <angular-editor formControlName="productDescription" [config]="config"></angular-editor>
-           
-          <div class="product">
-            <mat-checkbox #checkbox formControlName="allowDiscount"> Product Discount</mat-checkbox>
-            <input matInput type="number" class="inputproduct" formControlName="discountPercentage" type="text"  placeholder="Product Percentage" [hidden]="!checkbox.checked"/>
-          </div>
+              <div>
+                <button mat-raised-button color="primary" (click)="addNewAddressGroup()"> <mat-icon>add</mat-icon> Add
+                  Product Details</button>
+              </div>
+              <div *ngFor="let addressGroup of addProductForm.get('productDetails')['controls'];let i = index"
+                [formGroup]="addressGroup">
+                <mat-form-field appearance="outline" class="w-30">
+                  <input matInput placeholder="Quantity" formControlName="quantity">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-30">
+                  <input matInput type="number" placeholder="Sizes" formControlName="sizes">
+                </mat-form-field>
+                <mat-slide-toggle class="w-30" formControlName="stockAvailability">Stock Availability</mat-slide-toggle>
+
+                <span class="w-30" (click)="deleteAddressGroup(i)"><mat-icon>delete</mat-icon></span>
+              </div>
+
+              <angular-editor formControlName="productDescription" [config]="config"></angular-editor>
+
+              <div class="product">
+                <mat-checkbox #checkbox formControlName="allowDiscount"> Product Discount</mat-checkbox>
+                <input matInput type="number" class="inputproduct" formControlName="discountPercentage" type="text"
+                  placeholder="Product Percentage" [hidden]="!checkbox.checked" />
+              </div>
             </div>
           </div>
           <div fxLayout="row">
@@ -78,10 +77,9 @@
     <div class="col-md-4">
       <h6>features Image..
       </h6>
-      <app-file-upload  requiredFileType="image/png"> </app-file-upload>
+      <app-file-upload requiredFileType="image/png"> </app-file-upload>
       <h6> mutli Image..</h6>
-    <app-multi-file-upload requiredFileType="image/png"></app-multi-file-upload></div>
+      <app-multi-file-upload requiredFileType="image/png"></app-multi-file-upload>
+    </div>
   </div>
-  </div>
-  
-
+</div>

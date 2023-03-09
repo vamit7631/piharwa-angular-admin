@@ -1,0 +1,44 @@
+.model_delete {
+    background-color: #fff;
+    border-radius: 2px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .Modal_header {
+    color: #363636;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0px;
+    position: relative;
+    text-align: left;
+    background: #FFF;
+    border-radius: 2px 2px 0 0;
+    word-wrap: break-word;
+  }
+  
+  .Modal_content {
+    padding: 10px 0px;
+    overflow-y: auto;
+  }
+  
+  .Modal_explanation {
+    margin-bottom: 20px;
+  }
+  .Modal_footer{
+    float: right;
+    padding: 14px;
+  
+  }
+  
+  .delete_btn{
+    margin: 10px;
+  }
+  .Modal_delete_footer{
+   float: right;
+   margin: 2px;
+  }
+
+  .Modal_delete_footer button{
+    margin: 10px;
+  }

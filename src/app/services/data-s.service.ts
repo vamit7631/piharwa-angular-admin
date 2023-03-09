@@ -29,6 +29,11 @@ export class DataService {
     return this.http.post(ApiConstants.apiURL + ApiConstants.addProduct,data);
 
    }
+
+   deleteproduct(productId){
+    return this.http.get(ApiConstants.apiURL + ApiConstants.deleteProduct+'/'+productId);
+
+   }
    imageUploadTumb(productId,data){
     return this.http.post(ApiConstants.apiURL + ApiConstants.imageUpload+'/'+productId,data);
 

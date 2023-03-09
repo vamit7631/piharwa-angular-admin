@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { TreeviewConfig, TreeviewItem } from 'ngx-treeview';
 import { AuthService } from 'src/app/services/auth.service';
@@ -37,13 +37,15 @@ export class AddProductComponent implements OnInit {
     private formBuilder: FormBuilder,
     private myRoute: Router,
     private dataService: DataService,
-    public authService: AuthService,
+    public authService: AuthService,private route: ActivatedRoute
   ) {}
   selectedValue: string;
   ngOnInit(): void {
     this.addProductFormData();
     this.getcategorylist();
-   
+    this.route.params.subscribe(params => {
+      console.log('The id of this route is: ', params.id);
+    });
   }
   getcategorylist(): void {
     this.dataService.getCategory()

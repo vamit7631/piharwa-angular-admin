@@ -23,11 +23,12 @@ import { MultiFileUploadComponent } from './components/products/multi-file-uploa
 import { LoaderInterceptor } from './components/loader/loader-intercepert/loader.interceptor';
 import { LoaderComponent } from './components/loader/loader/loader.component';
 import { TreeviewModule } from 'ngx-treeview';
+import { DeleteAlertComponent } from './components/delete-alert/delete-alert.component';
 @NgModule({
   declarations: [AppComponent,LoginComponent, HeaderComponent, 
     LoaderComponent,
     AddProductComponent,
-    ProductComponent,FooterComponent, HomeComponent,StatComponent, FileUploadComponent, MultiFileUploadComponent],
+    ProductComponent,FooterComponent, HomeComponent,StatComponent, FileUploadComponent, MultiFileUploadComponent, DeleteAlertComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
