@@ -35,10 +35,8 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-              <div class="tree">
-                <ngx-treeview [config]="config1" (selectedChange)="onSelectedChange($event)" [items]="items">
-                </ngx-treeview>
-              </div>
+              <app-category-list  [categoryListData]="categoryDataIdData"></app-category-list>
+
               <div>
                 <button mat-raised-button color="primary" (click)="addNewAddressGroup()"> <mat-icon>add</mat-icon> Add
                   Product Details</button>

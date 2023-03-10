@@ -22,20 +22,20 @@ import { StatComponent } from './admin/dashboard/stat/stat.component';
 import { MultiFileUploadComponent } from './components/products/multi-file-upload/multi-file-upload.component';
 import { LoaderInterceptor } from './components/loader/loader-intercepert/loader.interceptor';
 import { LoaderComponent } from './components/loader/loader/loader.component';
-import { TreeviewModule } from 'ngx-treeview';
 import { DeleteAlertComponent } from './components/delete-alert/delete-alert.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 @NgModule({
   declarations: [AppComponent,LoginComponent, HeaderComponent, 
     LoaderComponent,
-    AddProductComponent,
-    ProductComponent,FooterComponent, HomeComponent,StatComponent, FileUploadComponent, MultiFileUploadComponent, DeleteAlertComponent],
+    AddProductComponent,CategoryListComponent,
+    ProductComponent,FooterComponent, HomeComponent,StatComponent, FileUploadComponent, MultiFileUploadComponent, DeleteAlertComponent, CategoryListComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,ReactiveFormsModule,FormsModule,
     SharedModule,MaterialExampleModule,
-    CommonModule,AngularEditorModule,TreeviewModule.forRoot(),
+    CommonModule,AngularEditorModule,
     
 
   ],

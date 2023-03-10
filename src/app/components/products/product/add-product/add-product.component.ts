@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { TreeviewConfig, TreeviewItem } from 'ngx-treeview';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data-s.service';
 
@@ -14,13 +13,6 @@ import { DataService } from 'src/app/services/data-s.service';
 export class AddProductComponent implements OnInit {
   loginData: any;
   addProductForm!: FormGroup;
-  config1 = TreeviewConfig.create({
-    hasAllCheckBox: true,
-    hasFilter: true,
-    hasCollapseExpand: true,
-    decoupleChildFromParent: false,
-    maxHeight: 400
-});
 
   validation={
     phoneRegex: /\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/,
@@ -28,7 +20,6 @@ export class AddProductComponent implements OnInit {
    }
   categoryData: any;
   categoryDataIdData: any;
-  items:  TreeviewItem[];
   productData: any;
   productid: any='';
  ;
@@ -67,7 +58,6 @@ export class AddProductComponent implements OnInit {
       q.collapsed=true
     })
     console.log(this.categoryDataIdData);
-    this.items= this.categoryDataIdData;
   }
 
   onSelectedChange(event){
